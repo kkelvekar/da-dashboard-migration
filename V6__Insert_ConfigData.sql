@@ -12,14 +12,14 @@ DECLARE @BusinessEntityRAGConfigID2 UNIQUEIDENTIFIER = NEWID();
 /* =====================================================
    2) Insert 1 row into BusinessEntityConfig (referenced by all entities)
    ===================================================== */
-INSERT INTO dbo.BusinessEntityConfig 
+INSERT INTO dbo.BusinessEntityConfig
     (Id, Name, Metadata, CreatedDate, UpdatedDate)
-VALUES 
+VALUES
 (
-  @BusinessEntityConfigId1, 
-  'Data Services REST Config', 
-  '{ "services": [ { "name": "DataLoadStatisticService", "common": { "timeout": 5000, "retryPolicy": 3 }, "environments": [ { "name": "Dev", "baseUrl": "https://localhost:7080/" }, { "name": "QA", "baseUrl": "https://localhost:7080/" }, { "name": "PreProd", "baseUrl": "https://localhost:7080/" }, { "name": "Prod", "baseUrl": "https://localhost:7080/" } ] } ] }',
-  GETDATE(), 
+  @BusinessEntityConfigId1,
+  'Data Load Statistic Service',
+  '{ "environments": [ { "name": "Dev", "baseUrl": "https://localhost:7080/" }, { "name": "QA", "baseUrl": "https://localhost:7080/" }, { "name": "PreProd", "baseUrl": "https://localhost:7080/" }, { "name": "Prod", "baseUrl": "https://localhost:7080/" } ] }',
+  GETDATE(),
   GETDATE()
 );
 
